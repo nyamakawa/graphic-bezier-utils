@@ -43,12 +43,12 @@ sub split_curve {
 sub de_casteljau {
     my ($t, $p0, $p1, $p2, $p3) = @_;
     
-    my $b1 = split_curve($t, $p0, $p1);
-    my $b2 = split_curve($t, $p1, $p2);
-    my $b3 = split_curve($t, $p2, $p3);
-    my $c1 = split_curve($t, $b1, $b2);
-    my $c2 = split_curve($t, $b2, $b3);
-    my $d1 = split_curve($t, $c1, $c2);
+    my $b1 = split_line($t, $p0, $p1);
+    my $b2 = split_line($t, $p1, $p2);
+    my $b3 = split_line($t, $p2, $p3);
+    my $c1 = split_line($t, $b1, $b2);
+    my $c2 = split_line($t, $b2, $b3);
+    my $d1 = split_line($t, $c1, $c2);
 
     return $b1, $b2, $b3, $c1, $c2, $d1;
 }
